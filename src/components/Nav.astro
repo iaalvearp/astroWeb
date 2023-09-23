@@ -1,0 +1,40 @@
+---
+import NavBtn from "./NavBtn.astro";
+---
+
+
+
+<nav class=" max-w-5xl p-6 flex flex-wrap justify-between mx-auto font-sans antialiased">
+    <a href="/" class="min-[320px]:text-3xl md:text-3xl xl:text-4xl tracking-tight font-extrabold text-white">△lPes</a>
+    <div class="flex flex-wrap justify-center gap-4 antialiased">
+        <NavBtn href="/">
+            <svg slot="before" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>
+             </svg>
+            Inicio
+        </NavBtn>
+        <NavBtn href="/about">
+            <svg slot="before" class="icon icon-tabler icon-tabler-info-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"></path>
+                <path d="M12 9h.01"></path>
+                <path d="M11 12h1v4h1"></path>
+             </svg>
+            Acerca de
+        </NavBtn>
+        <NavBtn href="/contact">
+            <svg slot="before" class="icon icon-tabler icon-tabler-headset" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path d="M4 14v-3a8 8 0 1 1 16 0v3"></path>
+                <path d="M18 19c0 1.657 -2.686 3 -6 3"></path>
+                <path d="M4 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z"></path>
+                <path d="M15 14a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2v-3z"></path>
+             </svg>
+            Contacto
+        </NavBtn>        
+    </div>
+</NavBtn>
+
