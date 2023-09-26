@@ -1,20 +1,76 @@
 ---
-const url = 'https://open-weather13.p.rapidapi.com/city/landon';
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '154e6df919msh0f2df3eae0c2930p15e68cjsnf1a8dc74de7a',
-		'X-RapidAPI-Host': 'open-weather13.p.rapidapi.com'
-	}
-};
-
-try {
-	const response = await fetch(url, options);
-	const result = await response.text();
-	console.log(result);
-} catch (error) {
-	console.error(error);
-}
+import cloud_icon from '../assets/cloud.png'
+import clear from '../assets/clear.png'
+import drizzle from '../assets/drizzle.png'
+import snow from '../assets/snow.png'
+import rain from '../assets/rain.png'
 
 
 ---
+
+<script>
+const searchBtn = document.getElementById('searchBtn');
+let show: HTMLInputElement | null = document.querySelector('#showCountry');
+let inputPlace: HTMLInputElement | null = document.querySelector('#inputPlace');
+let city: HTMLInputElement | null | string;
+
+
+
+searchBtn?.addEventListener('click', ()=>{
+    if (show && inputPlace) show.innerText = inputPlace.value;
+	const api_key = '0c90584e216bed265e468408302ae9d5';
+	if (inputPlace) {
+	city = inputPlace.value
+}
+	
+	let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&units=imperial`;
+	fetch(url)
+		.then(res => res.json())
+		.then(data => data)
+		.catch(err => console.log(err));	
+})
+
+
+
+</script>
+
+<div class=" 2xl:col-start-3 2xl:col-end-5 xl:col-start-3 xl:col-end-5 min-[320px]:col-start-1  justify-center">
+	<div id="infoContainer" class="grid justify-center">
+		<div class="h-14 w-[400px] bg-white/10 rounded-full flex justify-between items-center">
+			<input type="text" name="inputPlace" id="inputPlace" placeholder="Buscar..." class=" outline-none bg-transparent bg-none rounded-full w-4/5 pl-5 text-xl">
+			<svg id="searchBtn" class=" h-12 w-12 cursor-pointer bg-black/10 rounded-full p-1 mr-5 hover:bg-slate-700 focus:ring-[#1da1f2]/50 scale-70 hover:scale-90  opacity-50 hover:opacity-100 ease-in-out transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+			<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+			</svg>
+		</div>
+		<img id="widgetImg" src={cloud_icon.src} alt="" class="m-auto h-56 w-56">
+		<div id="numTemp" class="text-5xl font-bold text-center">24°C</div>
+		<div id="showCountry" class="text-6xl font-bold text-center my-2">London</div>
+		<div class="flex justify-around items-center">
+			<div class="flex my-4">
+				<svg class="p-1" width="48" height="48" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+					<path d="M4.072 20.3a2.999 2.999 0 0 0 3.856 0a3.002 3.002 0 0 0 .67 -3.798l-2.095 -3.227a.6 .6 0 0 0 -1.005 0l-2.098 3.227a3.003 3.003 0 0 0 .671 3.798z"></path>
+					<path d="M16.072 20.3a2.999 2.999 0 0 0 3.856 0a3.002 3.002 0 0 0 .67 -3.798l-2.095 -3.227a.6 .6 0 0 0 -1.005 0l-2.098 3.227a3.003 3.003 0 0 0 .671 3.798z"></path>
+					<path d="M10.072 10.3a2.999 2.999 0 0 0 3.856 0a3.002 3.002 0 0 0 .67 -3.798l-2.095 -3.227a.6 .6 0 0 0 -1.005 0l-2.098 3.227a3.003 3.003 0 0 0 .671 3.798z"></path>
+				 </svg>
+				<div class="p-1">
+					<p id="humPercent" class="text-xl text-center">64%</p>
+					<p class="text-gray-400">Humidity</p>
+				</div>
+			</div>
+			<div class=" flex">
+				<svg class="p-1" width="48" height="48" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+					<path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+					<path d="M5 8h8.5a2.5 2.5 0 1 0 -2.34 -3.24"></path>
+					<path d="M3 12h15.5a2.5 2.5 0 1 1 -2.34 3.24"></path>
+					<path d="M4 16h5.5a2.5 2.5 0 1 1 -2.34 3.24"></path>
+				 </svg>
+				<div class="p-1">
+					<p id="windSpeed" class="text-xl text-center">18 Km/h</p>
+					<p class="text-gray-400">Wind Speed</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

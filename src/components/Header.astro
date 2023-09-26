@@ -1,15 +1,17 @@
 ---
+import Widget from "./Widget.astro";
 
 
 ---
 
-<header class="grid grid-cols-4 max-w-5xl py-8 px-4 mx-auto lg:py-16 lg:px-6">
-    <div class="col-start-1 col-span-2 align-middle text-left mb-8 lg:mb-16">
-        <h2 class="mb-4 min-[320px]:text-2xl md:text-4xl xl:text-5xl tracking-tight font-extrabold text-white">
-            App del Clima ☁️
+<header class="grid items-center grid-cols-4 max-w-5xl py-8 px-4 mx-auto lg:py-16 lg:px-6 min-[320px]:grid-cols-1 min-[320px]:mb-16 sm:grid-cols-1 lg:grid-cols-1">
+    <div class="col-start-1 col-span-2 align-middle text-left sm:mb-16">
+        <h2 class="mb-4 max-[320px]:text-2xl md:text-4xl xl:text-5xl md:text-center tracking-tight font-extrabold text-white">
+            ClimApp ☁️
         </h2>
-        <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">
+        <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400 lg:text-center">
             La información del Clima a tu alcance.
         </p>
     </div>
+    <Widget />
 </header>
